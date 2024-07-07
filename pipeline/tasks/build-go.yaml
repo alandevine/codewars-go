@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: build-go
+spec:
+  steps:
+    - name: build
+      image: golang:1.20
+      workingDir: /workspace/source
+      script: |
+        go build -o myapp ./...
+  workspaces:
+    - name: source

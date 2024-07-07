@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: go-project-pipeline-run
+spec:
+  pipelineRef:
+    name: go-project-pipeline
+  params:
+    - name: git-url
+      value: "https://github.com/alandevine/codewars-go"
+    - name: git-revision
+      value: "main"
+  workspaces:
+    - name: shared-workspace
+      persistentVolumeClaim:
+        claimName: tekton-pvc
