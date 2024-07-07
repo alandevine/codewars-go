@@ -5,7 +5,7 @@ metadata:
 spec:
   steps:
     - name: test
-      image: golang:1.20
+      image: golang:1.22
       workingDir: /workspace/source
       script: |
         go test ./...

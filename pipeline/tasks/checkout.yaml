@@ -13,8 +13,9 @@ spec:
     - name: clone
       image: alpine/git
       script: |
+        rm -rf /workspace/source || true
         git clone $(params.url) /workspace/source
         cd /workspace/source
         git checkout $(params.revision)
   workspaces:
-    - name: output
+    - name: source
